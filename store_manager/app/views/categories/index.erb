@@ -1,0 +1,19 @@
+<div class="container">
+	<h1>Categories List</h1>
+	<a href="/category/new">Add New Category</a>
+	<a href="/">Home</a>
+	<div class="row">
+		<ul>
+			<%@categories.each do |category|%>
+				<li>
+					<%=category.name%> 
+					<ul>
+						<% category.products.each do |product| %>
+							<li><%= product %></li>
+						<% end %>
+					</ul>
+				</li>
+			<% end %>			
+		</ul>
+	</div>
+</div>

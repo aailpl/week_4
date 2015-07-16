@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="row">
+		<h1>Products List</h1>
+		<a href="/products/new">New Product</a>
+	</div>
+	<div class="row">
+		<ul>
+			<% @products.each do |product| %>
+				<li>
+					<span><%= product.name %></span>
+					<span><%= product.price %></span>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</div>

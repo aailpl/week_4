@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<form action="/products" method="post">
+			<label from="name">Name</label>
+			<input id="name" type="text" name="name">
+
+			<label from="price">Price</label>
+			<input id="price" type="text" name="price">
+
+			<label from="description">Description</label>
+			<input id="description" type="text" name="description">
+
+			<select name="category">
+				<% @categories.each do |category|%>
+					<option value="<%= category.id %>" ><%= category.name %></option>
+				<% end %>
+			</select>	
+			<button type="submit">Create</button>			
+		</form>
+
+	</div>
+</div>

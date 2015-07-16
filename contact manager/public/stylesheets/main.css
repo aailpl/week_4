@@ -1,0 +1,28 @@
+.anchor{
+	position: relative;
+}
+.offset{
+	position: absolute;
+	right: -220px;
+	top:0;
+}
+.form-group.input-inline {
+	width: 90%;
+}
+
+.form-control.input-group{
+	margin: 0px;
+	width: 100%;
+}
+
+.panel.panel-default.padding
+{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.max-size{
+	max-width:300px; 
+}
+.text-box{
+	word-wrap: break-word;
+}

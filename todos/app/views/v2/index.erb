@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-4"><h1>Todo List</h1></div>
+		<div class="col-xs-4"></div>
+		<div class="col-xs-4"></div>
+	</div>
+	<div class="row">
+		<div class="col-xs-4">
+			<form action="/remove" method="post">
+			  <div class="form-group">
+			  	<input>
+			  	<% @todos.each do |todo|%>
+				  	<div class="checkbox">
+					  <label>
+					    <input type="checkbox" name="id_<%=todo.id%>" value="<%=todo.id%>">
+					   <p class="lead"><%=todo.title%> <span class="label <%= (todo.status == "complete") ? "label-success" : "label-warning" %>"> <%=todo.status%></span></p>
+					  </label>
+					</div>
+				<% end %>
+			  </div>
+			  <button type="submit" class="btn btn-default">Remove</button>
+			  <button class="btn btn-default"><a class="link" href="/new">Add New Task</a></button>
+			</form>				
+		</div>
+		<div class="col-xs-4"></div>
+		<div class="col-xs-4"></div>		
+	</div>
+</div>

@@ -1,0 +1,86 @@
+<nav class="navbar navbar-default">  
+	<form class="navbar-form navbar-left" action="/" method="get" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" name="search" placeholder="Search">
+        </div>        
+        <div class="radio">
+		  <label>
+		    <input type="radio" name="search_by" id="optionsRadios1" value="name" checked>
+		    Name
+		  </label>
+		  <label>
+		    <input type="radio" name="search_by" id="optionsRadios2" value="phone" checked>
+		    Phone
+		  </label>
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</nav>
+<div class="container">	
+	<div class="row">
+		<div class="col-xs-4"></div>
+		<div class="col-xs-4"><h1 class="text-center">Contacts List</h1></div>
+		<div class="col-xs-4"></div>
+	</div>
+	<div class="row">
+		<div class="col-xs-2">
+			<div class="panel panel-default padding">
+				<div class="panel-body">
+					<form method="get" action="/">
+						Sort
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="order" id="optionsRadios1" value="ASC" checked>
+						    Ascendent
+						  </label>
+						</div>
+						<div class="radio">
+						  <label>
+						    <input type="radio" name="order" id="optionsRadios2" value="DSC">
+						    Descendent
+						  </label>
+						</div>	
+						<div class="text-center">
+							<button type="submit" class="btn btn-default">Sort</button>
+						</div>				
+					</form>					
+				</div>				
+			</div>
+		</div>
+		<div class="col-xs-8">
+			<table class="table table-bordered text-center table-hover">
+			  <tr>
+			  	<th class="active text-center">First Name</th>
+			  	<th class="active text-center">Last Name</th>
+			  	<th class="active text-center">Phone</th>
+			  	<th class="active text-center">Email</th>
+			  	<th class="active text-center">Adress</th>
+			  </tr>
+			   <% @contacts.each do |contact|%>
+			  	<tr>
+			  		<td class="max-size"><a class="text-muted text-box" href="/<%= contact.id %>/edit?name"><strong><%= contact.name %></strong></a></td>
+			  		<td class=" max-size"><a class="text-muted text-box" href="/<%= contact.id %>/edit?last_name"><strong><%= contact.last_name %></strong></a></td>
+			  		<td class=" max-size"><a class="text-muted text-box" href="/<%= contact.id %>/edit?phone"><strong><%= contact.phone %></strong></a></td>
+			  		<td class=" max-size"><a class="text-muted text-box" href="/<%= contact.id %>/edit?email"><strong><%= contact.email %></strong></a></td>
+			  		<td class="anchor max-size">
+			  			<a class="text-muted text-box" href="/<%= contact.id %>/edit?adress"><strong><%= contact.adress %></strong></a>
+			  			<div class="dropdown offset">
+						  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    More
+						    <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						    <li><a href="/<%= contact.id %>">Details</a></li>
+						    <li><a href="/<%= contact.id %>/delete">Remove</a></li>
+						    <li><a href="/new">New</a></li>
+						    <li><a href="/">Full List</a></li>
+						    <li><a href="/<%= contact.id %>/users_list">Users List</a></li>
+						  </ul>
+						</div>			  			
+			  		</td>  			
+			  	</tr>			  	
+			  <% end %>
+		</div>
+		<div class="col-xs-2"></div>
+	</div>
+</div>
